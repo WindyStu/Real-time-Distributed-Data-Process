@@ -2,7 +2,7 @@
 
 ## 项目链接
 
-
+[WindyStu/Real-time-Distributed-Data-Process: using kafka distill real-time data source , sparkstreaming with kafka topic to handle the data ,end with a dynamic web show the message based on flask and optional persistence by mysql](https://github.com/WindyStu/Real-time-Distributed-Data-Process)
 
 ## 项目介绍
 
@@ -25,7 +25,7 @@
 ## 项目结构
 
 ```tex
-pythonProject
+big_data
 ├─ data
 │  ├─ output.csv
 │  ├─ test.py
@@ -57,12 +57,12 @@ pythonProject
 │  │     └─ css
 │  │        └─ style.css
 │  └─ scripts
-│     ├─ consumer.py	//消费topic为catrgory的数据，将数据进行统计处理后发送topic为category_results
+│     ├─ consumer.py	//测试代码
 │     ├─ consumer_mysql.py	//消费topic为category_results的数据，将数据存储到本地mysql持久化存储	
-│     ├─ consumer_test1.py	//测试代码
+│     ├─ consumer_test1.py	//消费topic为catrgory的数据，将数据进行统计处理后发送topic为category_results
 │     ├─ kafka_test1.py	//测试代码
-│     ├─ producer.py	//读取数据源，本项目是从本地读取csv模拟实时数据，将数据发送到topic为category中
-│     └─ producer_test1.py	//测试代码
+│     ├─ producer.py	//测试代码
+│     └─ producer_test1.py	//读取数据源，本项目是从本地读取csv模拟实时数据，将数据发送到topic为category中
 └─ .idea
    └─ pythonProject.iml
 ```
@@ -76,13 +76,13 @@ pythonProject
 * 读取数据源，创建主题`category`，生产者生产消息
 
 ```bash
-python producer.py
+python producer_test1.py
 ```
 
 * 消费者消费topic为`catrgory`的数据，`spark`数据统计处理后创建topic`category_results`,生产者生产消息
 
 ```bash
-python consumer.py
+python consumer_test1.py
 ```
 
 * 消费者消费topic为`category_results`的数据，将数据存储到本地`mysql`持久化存储
