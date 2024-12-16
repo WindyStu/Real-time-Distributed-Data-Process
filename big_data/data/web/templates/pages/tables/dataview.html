@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>数据视图</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendors/mdi/css/materialdesignicons.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendors/base/vendor.bundle.base.css') }}">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+          <a class="navbar-brand brand-logo" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo-mini.svg') }}" alt="logo"/></a>
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-sort-variant"></span>
+          </button>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-4 w-100">
+          <li class="nav-item nav-search d-none d-lg-block w-100">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="mdi mdi-magnify"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown me-4">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-success">
+                    <i class="mdi mdi-information mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-warning">
+                    <i class="mdi mdi-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-info">
+                    <i class="mdi mdi-account-box mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+              <img src="{{ url_for('static', filename='images/face.jpg') }}" alt="profile"/>
+              <span class="nav-profile-name">Ding jiayi</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="mdi mdi-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="mdi mdi-logout text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/index">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">主页</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/tables/dataview">
+              <i class="mdi mdi-grid menu-icon"></i>
+              <span class="menu-title">数据一览</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/charts/datacharts">
+              <i class="mdi mdi-elevation-rise menu-icon"></i>
+              <span class="menu-title">数据可视化</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">订单数据表</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>项目ID</th>
+                          <th>状态</th>
+                          <th>创建日期</th>
+                          <th>价格</th>
+                          <th>已订购数量</th>
+                          <th>总金额</th>
+                          <th>增量ID</th>
+                          <th>类别</th>
+                          <th>折扣金额</th>
+                          <th>支付方式</th>
+                          <th>工作日期</th>
+                          <th>BI状态</th>
+                          <th>MV</th>
+                          <th>年份</th>
+                          <th>月份</th>
+                          <th>月份-年份</th>
+                          <th>财年</th>
+                          <th>客户ID</th>
+                          <th>月份名称</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for item in items %}
+                        <tr class="text-center">
+                          <td>{{ item[0] }}</td>
+                          <td>{{ item[1] }}</td>
+                          <td>{{ item[2] }}</td>
+                          <td>{{ item[3] }}</td>
+                          <td>{{ item[4] }}</td>
+                          <td>{{ item[5] }}</td>
+                          <td>{{ item[6] }}</td>
+                          <td>{{ item[7] }}</td>
+                          <td>{{ item[8] }}</td>
+                          <td>{{ item[9] }}</td>
+                          <td>{{ item[10] }}</td>
+                          <td>{{ item[11] }}</td>
+                          <td>{{ item[12] }}</td>
+                          <td>{{ item[13] }}</td>
+                          <td>{{ item[14] }}</td>
+                          <td>{{ item[15] }}</td>
+                          <td>{{ item[16] }}</td>
+                          <td>{{ item[17] }}</td>
+                          <td>{{ item[18] }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{{ url_for('static', filename='vendors/base/vendor.bundle.base.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{{ url_for('static', filename='js/off-canvas.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/hoverable-collapse.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/template.js') }}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script>
+    fetch("{{ url_for('static', filename='data/data.csv') }}")
+      .then(response => response.text())
+      .then(csvData => {
+        Papa.parse(csvData, {
+          header: true,
+          complete: function(results) {
+            const tableBody = document.getElementById('tableBody');
+            results.data.forEach(row => {
+              if (row.item_id) {
+                const tr = document.createElement('tr');
+                switch(row.status) {
+                  case 'complete':
+                    tr.className = 'table-success';
+                    break;
+                  case 'canceled':
+                    tr.className = 'table-danger';
+                    break;
+                  case 'order_refunded':
+                    tr.className = 'table-warning';
+                    break;
+                }
+                tr.innerHTML = `
+                  <td>${row.item_id}</td>
+                  <td>${row.status}</td>
+                  <td>${row.created_at}</td>
+                  <td>${row.price}</td>
+                  <td>${row.qty_ordered}</td>
+                  <td>${row.grand_total}</td>
+                  <td>${row.Category || 'N/A'}</td>
+                  <td>${row.payment_method}</td>
+                  <td>${row.Customer_ID}</td>
+                `;
+                tableBody.appendChild(tr);
+              }
+            });
+          }
+        });
+      });
+  </script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
