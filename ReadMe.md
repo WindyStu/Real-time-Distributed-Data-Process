@@ -24,6 +24,7 @@
 
 ## 项目结构
 
+```tex
 pythonProject
 ├─ data
 │  ├─ output.csv
@@ -64,6 +65,9 @@ pythonProject
 │     └─ producer_test1.py	//测试代码
 └─ .idea
    └─ pythonProject.iml
+```
+
+
 
 ## 命令行
 
